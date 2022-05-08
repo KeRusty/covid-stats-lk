@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import NavBar from '../../Components/NavBar/NavBar';
-import CountryTable from '../../Components/CountryTable/CountryTable';
+//import CountryTable from '../../Components/CountryTable/CountryTable';
 
 // styles
 import './LandingPage.scss';
