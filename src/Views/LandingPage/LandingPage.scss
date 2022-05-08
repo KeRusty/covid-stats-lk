@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex: 1;
+  }
+
+  .page{
+    display: flex;
+    flex-direction: column;
+  }
+
+.global-container{
+  margin-top: 600px;
+}
+
+
+.table-container{
+  display: flex;
+  margin-top: 10px;
+}
