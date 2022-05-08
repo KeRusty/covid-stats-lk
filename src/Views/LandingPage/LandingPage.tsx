@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import NavBar from '../../Components/NavBar/NavBar';
+import CountryTable from '../../Components/CountryTable/CountryTable';
 
 // styles
 import './LandingPage.scss';
@@ -17,7 +18,6 @@ function LandingPage() {
         axios
           .get("https://api.covid19api.com/summary")
           .then(function (response) {
-            console.log(response.data);
             setData(response.data);
             setLoading(false);
           });
@@ -26,18 +26,28 @@ function LandingPage() {
     useEffect(()=>{getAll();},[])
 
   return (
-    <div>
+    <div className="container">
         <NavBar/>
-        <div className="container">
-        <p>GLOBAL STATS</p>
-        {!loading &&
-            data &&
-                <div>
-                    <p>Total Cases: {data.Global.TotalConfirmed}</p>
-                    <p>Total Deaths: {data.Global.TotalDeaths}</p>
-                </div>
-        }
+        <div className="page">
+            <div className="global-container">
+                <p>GLOBAL STATS</p>
+                {!loading &&
+                    data &&
+                        <div>
+                            <p>Total Cases: {data.Global.TotalConfirmed}</p>
+                            <p>Total Deaths: {data.Global.TotalDeaths}</p>
+                        </div>
+                }
+            </div>
+            
+            {!loading &&
+                data &&
+                <div className='table-container'>
+                <CountryTable data={data ?? data.countries}/>
+            </div>
+            }
         </div>
+       
     </div>
   );
 }

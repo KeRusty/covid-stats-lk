@@ -7,7 +7,7 @@ function NavBar() {
 
   return (
     <div className="container">
-      <h1 className='h1'>COVID STATS</h1>
+      <p className='h1'>COVID STATS</p>
     </div>
   );
 }
