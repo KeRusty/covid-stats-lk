@@ -49,6 +49,26 @@ function LandingPage() {
                    
                 }
             </div>
+
+            <div className="local-container">
+                <p>SRI LANKAN STATS</p>
+                {!loading &&
+                <div className="global-box-container"> 
+                    <div className="global-box">
+                        <p>Total Cases: {data ? parseInt(data.local_total_cases).toLocaleString() : 0}</p>
+                        <p>Total Deaths: {data ? parseInt(data.local_deaths).toLocaleString() : 0}</p>
+                    </div>
+                    <div className="global-box">
+                        <p>New Cases: {data ? parseInt(data.local_new_cases).toLocaleString() : 0}</p>
+                        <p>New Deaths: {data ? parseInt(data.local_new_deaths).toLocaleString() : 0}</p>
+                    </div>
+                    <div className="global-box">
+                        <p>Recoveries: {data ? parseInt(data.local_recovered).toLocaleString() : 0}</p>
+                    </div>
+                </div>
+                   
+                }
+            </div>
             
             {/*!loading &&
                 data &&
