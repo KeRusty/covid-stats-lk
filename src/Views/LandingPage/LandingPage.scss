@@ -12,9 +12,29 @@
   margin-top: 600px;
 }
 
+.local-container{
+  margin-top: 40px;
+}
+
 
 .table-container{
   display: flex;
   flex: 1;
   margin-top: 10px;
+}
+
+.global-box-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.global-box{
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px;
+  align-items: flex-start;
+  background-color: gray;
+  padding: 20px;
+  border-radius: 20px;
+  
 }
