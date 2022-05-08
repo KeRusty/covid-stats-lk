@@ -16,9 +16,10 @@ function LandingPage() {
     const getAll = () => {
         setLoading(true);
         axios
-          .get("https://api.covid19api.com/summary")
+          .get("https://www.hpb.health.gov.lk/api/get-current-statistical")
           .then(function (response) {
-            setData(response.data);
+            console.log(response.data.data, "DATA")
+            setData(response.data.data);
             setLoading(false);
           });
       };
@@ -32,20 +33,29 @@ function LandingPage() {
             <div className="global-container">
                 <p>GLOBAL STATS</p>
                 {!loading &&
-                    data &&
-                        <div>
-                            <p>Total Cases: {data.Global.TotalConfirmed}</p>
-                            <p>Total Deaths: {data.Global.TotalDeaths}</p>
-                        </div>
+                <div className="global-box-container"> 
+                    <div className="global-box">
+                        <p>Total Cases: {data ? parseInt(data.global_total_cases).toLocaleString() : 0}</p>
+                        <p>Total Deaths: {data ? parseInt(data.global_deaths).toLocaleString() : 0}</p>
+                    </div>
+                    <div className="global-box">
+                        <p>New Cases: {data ? parseInt(data.global_new_cases).toLocaleString() : 0}</p>
+                        <p>New Deaths: {data ? parseInt(data.global_new_deaths).toLocaleString() : 0}</p>
+                    </div>
+                    <div className="global-box">
+                        <p>Recoveries: {data ? parseInt(data.global_recovered).toLocaleString() : 0}</p>
+                    </div>
+                </div>
+                   
                 }
             </div>
             
-            {!loading &&
+            {/*!loading &&
                 data &&
                 <div className='table-container'>
                     <CountryTable tableData={data.Countries}/>
                 </div>
-            }
+            */}
         </div>
        
     </div>
