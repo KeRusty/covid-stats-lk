@@ -43,8 +43,8 @@ function LandingPage() {
             {!loading &&
                 data &&
                 <div className='table-container'>
-                <CountryTable data={data ?? data.countries}/>
-            </div>
+                    <CountryTable tableData={data.Countries}/>
+                </div>
             }
         </div>
        
