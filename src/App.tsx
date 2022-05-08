@@ -1,15 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
+
+// Routes
+import LandingPage from './Views/LandingPage/LandingPage';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-         COVID STATS
-        </p>
-      </header>
+       <Routes>
+          <Route path="/" element={<LandingPage />} />
+      </Routes>
     </div>
   );
 }
