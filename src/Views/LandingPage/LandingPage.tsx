@@ -3,7 +3,6 @@ import axios from "axios";
 
 import NavBar from "../../Components/NavBar/NavBar";
 import DetailCard from "../../Components/DetailCard/DetailCard";
-//import CountryTable from '../../Components/CountryTable/CountryTable';
 
 // styles
 import "./LandingPage.scss";
