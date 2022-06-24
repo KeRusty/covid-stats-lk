@@ -1,13 +1,20 @@
-import React from 'react';
+import React from "react";
+import { PageHeader } from "antd";
 
 // styles
-import './NavBar.scss';
+import "./NavBar.scss";
 
-function NavBar() {
-
+function NavBar({ subTitle }: { subTitle: string }) {
   return (
-    <div className="container">
-      <p className='p'>COVID STATS</p>
+    <div>
+      <PageHeader
+        className="site-page-header"
+        onBack={() => null}
+        backIcon={false}
+        title="Covid Tracker"
+        subTitle={subTitle ?? ""}
+        ghost={true}
+      />
     </div>
   );
 }
