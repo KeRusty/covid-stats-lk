@@ -1,36 +1,35 @@
 .container {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .page{
-    display: flex;
-    flex-direction: column;
-  }
-
-.global-container{
-  margin-top: 600px;
+  //justify-content: center;
+  //align-items: center;
 }
 
-.local-container{
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.global-container {
   margin-top: 40px;
 }
 
+.local-container {
+  margin-top: 40px;
+}
 
-.table-container{
+.table-container {
   display: flex;
   flex: 1;
   margin-top: 10px;
 }
 
-.global-box-container{
+.global-box-container {
   display: flex;
   flex-direction: row;
 }
 
-.global-box{
+.global-box {
   display: flex;
   flex-direction: column;
   margin: 0px 10px;
@@ -38,5 +37,4 @@
   background-color: gray;
   padding: 20px;
   border-radius: 20px;
-  
 }

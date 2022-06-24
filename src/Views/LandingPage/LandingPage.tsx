@@ -30,7 +30,7 @@ function LandingPage() {
 
   return (
     <>
-      <NavBar subTitle={"Home"} />
+      <NavBar />
       <div className="container">
         <div className="page">
           <div className="global-container">
