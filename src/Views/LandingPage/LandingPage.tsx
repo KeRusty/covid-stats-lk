@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+// Components
 import NavBar from "../../Components/NavBar/NavBar";
 import DetailCard from "../../Components/DetailCard/DetailCard";
 import Heading from "../../Components/Heading/Heading";
