@@ -14,9 +14,8 @@ function NavBar() {
   let navigate = useNavigate();
 
   const pages = [
-    { title: "TEST 1", link: "/" },
-    { title: "TEST 2", link: "/" },
-    { title: "TEST 2", link: "/" },
+    { title: "Global Overview", link: "/" },
+    { title: "Local Covid Testing", link: "/sri-lanka-covid-testing-info" },
   ];
 
   function appBarLabel(label: string) {
