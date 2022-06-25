@@ -14,7 +14,7 @@ function NavBar() {
   let navigate = useNavigate();
 
   const pages = [
-    { title: "TEST 1", link: "/" },
+    { title: "Hospital Overview", link: "/" },
     { title: "TEST 2", link: "/" },
     { title: "TEST 2", link: "/" },
   ];

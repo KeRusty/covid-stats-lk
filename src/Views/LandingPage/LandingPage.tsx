@@ -3,6 +3,7 @@ import axios from "axios";
 
 import NavBar from "../../Components/NavBar/NavBar";
 import DetailCard from "../../Components/DetailCard/DetailCard";
+import Heading from "../../Components/Heading/Heading";
 
 // styles
 import "./LandingPage.scss";
@@ -33,7 +34,7 @@ function LandingPage() {
       <div className="container">
         <div className="page">
           <div className="global-container">
-            <p>GLOBAL STATS</p>
+            <Heading text={"GLOBAL STATISTICS"} level={3} />
             {!loading && (
               <div className="global-box-container">
                 <DetailCard
@@ -67,7 +68,7 @@ function LandingPage() {
           </div>
 
           <div className="local-container">
-            <p>SRI LANKAN STATS</p>
+            <Heading text={"SRI LANKAN STATISTICS"} level={3} />
             {!loading && (
               <div className="global-box-container">
                 <DetailCard
