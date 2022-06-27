@@ -46,7 +46,7 @@ function LandingPage() {
         <div className="container">
           <div className="page">
             <div className="global-container">
-              <Heading text={"GLOBAL STATISTICS"} level={3} />
+              <Heading text={"GLOBAL STATISTICS"} level={3} type={"global"} />
               {!loading && (
                 <div className="global-box-container">
                   <DetailCard
@@ -86,7 +86,11 @@ function LandingPage() {
             </div>
 
             <div className="local-container">
-              <Heading text={"SRI LANKAN STATISTICS"} level={3} />
+              <Heading
+                text={"SRI LANKAN STATISTICS"}
+                level={3}
+                type={"local"}
+              />
               {!loading && (
                 <div className="global-box-container">
                   <DetailCard
