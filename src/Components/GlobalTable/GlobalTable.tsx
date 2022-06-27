@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Table } from "antd";
 import type { ColumnsType, TableProps } from "antd/lib/table";
 
@@ -8,58 +8,37 @@ import type { ColumnsType, TableProps } from "antd/lib/table";
 import "./GlobalTable.scss";
 
 function GlobalTable({ data }: { data: any }) {
-  console.log(data, "TABLE DATA");
   const columns: ColumnsType<any> = [
     {
+      key: "ID",
       title: "Country",
       dataIndex: "Country",
+      width: "40%",
+      sorter: {
+        compare: (a, b) => a.Country - b.Country,
+      },
     },
     {
+      key: "ID",
       title: "Total Confirmed",
       dataIndex: "TotalConfirmed",
+      width: "40%",
+      render: (text: string, record: any) => <p>{text.toLocaleString()}</p>,
       sorter: {
         compare: (a, b) => a.chinese - b.chinese,
         multiple: 3,
       },
     },
     {
+      key: "ID",
       title: "Total Deaths",
       dataIndex: "TotalDeaths",
+      width: "40%",
+      render: (text: string, record: any) => <p>{text.toLocaleString()}</p>,
       sorter: {
         compare: (a, b) => a.math - b.math,
         multiple: 2,
       },
-    },
-  ];
-
-  const info: any = [
-    {
-      key: "1",
-      name: "John Brown",
-      chinese: 98,
-      math: 60,
-      english: 70,
-    },
-    {
-      key: "2",
-      name: "Jim Green",
-      chinese: 98,
-      math: 66,
-      english: 89,
-    },
-    {
-      key: "3",
-      name: "Joe Black",
-      chinese: 98,
-      math: 90,
-      english: 70,
-    },
-    {
-      key: "4",
-      name: "Jim Red",
-      chinese: 88,
-      math: 99,
-      english: 89,
     },
   ];
 
@@ -74,6 +53,7 @@ function GlobalTable({ data }: { data: any }) {
 
   return (
     <Table
+      className="this-table"
       columns={columns}
       dataSource={data}
       onChange={onChange}

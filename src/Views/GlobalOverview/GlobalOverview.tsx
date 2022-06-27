@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Table } from "antd";
-import type { ColumnsType, TableProps } from "antd/lib/table";
 
 // Components
 import NavBar from "../../Components/NavBar/NavBar";
@@ -18,8 +16,6 @@ function GlobalOverview() {
 
   const getAll = () => {
     setLoading(true);
-
-    let covidList: any;
 
     axios
       .get("https://api.covid19api.com/summary")
