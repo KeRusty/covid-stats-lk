@@ -14,7 +14,7 @@ function NavBar() {
   let navigate = useNavigate();
 
   const pages = [
-    { title: "Global Overview", link: "/" },
+    { title: "Global Overview", link: "/global-overview" },
     { title: "Local Covid Testing", link: "/sri-lanka-covid-testing-info" },
   ];
 
