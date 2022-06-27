@@ -3,6 +3,7 @@ import axios from "axios";
 
 // Components
 import NavBar from "../../Components/NavBar/NavBar";
+import Spinner from "../../Components/Spinner/Spinner";
 import DetailCard from "../../Components/DetailCard/DetailCard";
 import Heading from "../../Components/Heading/Heading";
 
@@ -22,6 +23,10 @@ function LandingPage() {
         console.log(response.data.data, "DATA");
         setData(response.data.data);
         setLoading(false);
+      })
+      .catch(function (error) {
+        console.log(error, "API ERROR OCCURED");
+        setLoading(true);
       });
   };
 
@@ -32,75 +37,96 @@ function LandingPage() {
   return (
     <>
       <NavBar />
-      <div className="container">
-        <div className="page">
-          <div className="global-container">
-            <Heading text={"GLOBAL STATISTICS"} level={3} />
-            {!loading && (
-              <div className="global-box-container">
-                <DetailCard
-                  title={"Total Statistics"}
-                  firstRow={`Total Cases: ${
-                    data
-                      ? parseInt(data.global_total_cases).toLocaleString()
-                      : 0
-                  }`}
-                  secondRow={`Total Deaths: ${
-                    data ? parseInt(data.global_deaths).toLocaleString() : 0
-                  }`}
-                />
-                <DetailCard
-                  title={"New Statistics"}
-                  firstRow={`New Cases: ${
-                    data ? parseInt(data.global_new_cases).toLocaleString() : 0
-                  }`}
-                  secondRow={`New Deaths: ${
-                    data ? parseInt(data.global_new_deaths).toLocaleString() : 0
-                  }`}
-                />
-                <DetailCard
-                  title={"Recoveries"}
-                  firstRow={`New Cases: ${
-                    data ? parseInt(data.global_recovered).toLocaleString() : 0
-                  }`}
-                />
-              </div>
-            )}
-          </div>
+      {loading && (
+        <div className="spinner">
+          <Spinner />
+        </div>
+      )}
+      {!loading && (
+        <div className="container">
+          <div className="page">
+            <div className="global-container">
+              <Heading text={"GLOBAL STATISTICS"} level={3} type={"global"} />
+              {!loading && (
+                <div className="global-box-container">
+                  <DetailCard
+                    title={"Total Statistics"}
+                    firstRow={`Total Cases: ${
+                      data
+                        ? parseInt(data.global_total_cases).toLocaleString()
+                        : 0
+                    }`}
+                    secondRow={`Total Deaths: ${
+                      data ? parseInt(data.global_deaths).toLocaleString() : 0
+                    }`}
+                  />
+                  <DetailCard
+                    title={"New Statistics"}
+                    firstRow={`New Cases: ${
+                      data
+                        ? parseInt(data.global_new_cases).toLocaleString()
+                        : 0
+                    }`}
+                    secondRow={`New Deaths: ${
+                      data
+                        ? parseInt(data.global_new_deaths).toLocaleString()
+                        : 0
+                    }`}
+                  />
+                  <DetailCard
+                    title={"Recoveries"}
+                    firstRow={`New Cases: ${
+                      data
+                        ? parseInt(data.global_recovered).toLocaleString()
+                        : 0
+                    }`}
+                  />
+                </div>
+              )}
+            </div>
 
-          <div className="local-container">
-            <Heading text={"SRI LANKAN STATISTICS"} level={3} />
-            {!loading && (
-              <div className="global-box-container">
-                <DetailCard
-                  title={"Total Local Statistics"}
-                  firstRow={`Total Cases: ${
-                    data ? parseInt(data.local_total_cases).toLocaleString() : 0
-                  }`}
-                  secondRow={`Total Local Deaths: ${
-                    data ? parseInt(data.local_deaths).toLocaleString() : 0
-                  }`}
-                />
-                <DetailCard
-                  title={"New Local Statistics"}
-                  firstRow={`New Cases: ${
-                    data ? parseInt(data.local_new_cases).toLocaleString() : 0
-                  }`}
-                  secondRow={`New Local Deaths: ${
-                    data ? parseInt(data.local_new_deaths).toLocaleString() : 0
-                  }`}
-                />
-                <DetailCard
-                  title={"Recoveries"}
-                  firstRow={`New Cases: ${
-                    data ? parseInt(data.local_recovered).toLocaleString() : 0
-                  }`}
-                />
-              </div>
-            )}
+            <div className="local-container">
+              <Heading
+                text={"SRI LANKAN STATISTICS"}
+                level={3}
+                type={"local"}
+              />
+              {!loading && (
+                <div className="global-box-container">
+                  <DetailCard
+                    title={"Total Local Statistics"}
+                    firstRow={`Total Cases: ${
+                      data
+                        ? parseInt(data.local_total_cases).toLocaleString()
+                        : 0
+                    }`}
+                    secondRow={`Total Local Deaths: ${
+                      data ? parseInt(data.local_deaths).toLocaleString() : 0
+                    }`}
+                  />
+                  <DetailCard
+                    title={"New Local Statistics"}
+                    firstRow={`New Cases: ${
+                      data ? parseInt(data.local_new_cases).toLocaleString() : 0
+                    }`}
+                    secondRow={`New Local Deaths: ${
+                      data
+                        ? parseInt(data.local_new_deaths).toLocaleString()
+                        : 0
+                    }`}
+                  />
+                  <DetailCard
+                    title={"Recoveries"}
+                    firstRow={`New Cases: ${
+                      data ? parseInt(data.local_recovered).toLocaleString() : 0
+                    }`}
+                  />
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
