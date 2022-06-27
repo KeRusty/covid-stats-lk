@@ -1,5 +1,4 @@
 import React from "react";
-import { Typography } from "antd";
 
 // Components
 import NavBar from "../../Components/NavBar/NavBar";
