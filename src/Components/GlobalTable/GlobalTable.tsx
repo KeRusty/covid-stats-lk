@@ -25,8 +25,7 @@ function GlobalTable({ data }: { data: any }) {
       width: "40%",
       render: (text: string, record: any) => <p>{text.toLocaleString()}</p>,
       sorter: {
-        compare: (a, b) => a.chinese - b.chinese,
-        multiple: 3,
+        compare: (a, b) => a.TotalConfirmed - b.TotalConfirmed,
       },
     },
     {
@@ -36,8 +35,7 @@ function GlobalTable({ data }: { data: any }) {
       width: "40%",
       render: (text: string, record: any) => <p>{text.toLocaleString()}</p>,
       sorter: {
-        compare: (a, b) => a.math - b.math,
-        multiple: 2,
+        compare: (a, b) => a.TotalDeaths - b.TotalDeaths,
       },
     },
   ];
@@ -48,7 +46,9 @@ function GlobalTable({ data }: { data: any }) {
     sorter,
     extra
   ) => {
-    console.log("params", pagination, filters, sorter, extra);
+    // logging the params to see what is happening
+    // console.log("params", pagination, filters, sorter, extra);
+    console.log(pagination, "Pagination Info logged in here");
   };
 
   return (
